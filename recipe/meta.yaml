@@ -1,5 +1,5 @@
 {% set name = "robocorp-log" %}
-{% set version = "2.6.0" %}
+{% set version = "2.7.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,11 +7,11 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/robocorp_log-{{ version }}.tar.gz
-  sha256: c72b9c380439cd3f2396f63edeb15469fba43d13c43a1e4e80f91cd82b35840c
+  sha256: 5c57e50ce7b2424ef46648e69d6353e69233576b728f16a4e3cd0aa85481ab7c
 
 build:
   noarch: python
-  script: 
+  script:
     - echo f | xcopy /f /y /S %RECIPE_DIR%\README.md %SRC_DIR%\README.md  # [win]
     - cp -R {{ RECIPE_DIR }}/README.md {{ SRC_DIR }}/README.md  # [unix]
     - {{ PYTHON }} -m pip install . -vv
