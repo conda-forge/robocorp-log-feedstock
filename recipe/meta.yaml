@@ -1,5 +1,5 @@
 {% set name = "robocorp-log" %}
-{% set version = "2.9.1" %}
+{% set version = "2.9.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/robocorp_log-{{ version }}.tar.gz
-  sha256: b01e4832f9a8f0afb592ba6cd85ee6e83af02224e8a33827389ab0143d8a1ff5
+  sha256: 8917057b2eb5fc6713ff4aa255b43cce809bdc6a59ab637630b8444fe4bba0a6
 
 build:
   noarch: python
