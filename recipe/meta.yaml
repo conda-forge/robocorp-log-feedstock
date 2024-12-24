@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/robocorp_log-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/robocorp_log-{{ version }}.tar.gz
   sha256: ecde32a50489af16a9f4941452d729298d809fcf212772559c93965854cdef17
 
 build:
@@ -15,15 +15,15 @@ build:
     - echo f | xcopy /f /y /S %RECIPE_DIR%\README.md %SRC_DIR%\README.md  # [win]
     - cp -R {{ RECIPE_DIR }}/README.md {{ SRC_DIR }}/README.md  # [unix]
     - {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.9.0,<4.0
+    - python {{ python_min }}
     - poetry-core
     - pip
   run:
-    - python >=3.9.0,<4.0.0
+    - python >={{ python_min }},<4.0.0
     - tomli >=2.0.1,<3.0.0
     - psutil >=5.9.0,<6.0.0
 
@@ -34,6 +34,7 @@ test:
     - pip check
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/robocorp/robo/
