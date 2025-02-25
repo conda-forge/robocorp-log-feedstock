@@ -1,5 +1,5 @@
 {% set name = "robocorp-log" %}
-{% set version = "2.9.3" %}
+{% set version = "2.9.6" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/robocorp_log-{{ version }}.tar.gz
-  sha256: ecde32a50489af16a9f4941452d729298d809fcf212772559c93965854cdef17
+  sha256: 67f88dba5ce626b42e645e7dfe60abd78edd50d17a1a2f6c554c78c1d2ca1176
 
 build:
   noarch: python
@@ -15,7 +15,7 @@ build:
     - echo f | xcopy /f /y /S %RECIPE_DIR%\README.md %SRC_DIR%\README.md  # [win]
     - cp -R {{ RECIPE_DIR }}/README.md {{ SRC_DIR }}/README.md  # [unix]
     - {{ PYTHON }} -m pip install . -vv
-  number: 1
+  number: 0
 
 requirements:
   host:
@@ -24,8 +24,8 @@ requirements:
     - pip
   run:
     - python >={{ python_min }},<4.0.0
-    - tomli >=2.0.1,<3.0.0
-    - psutil >=5.9.0,<6.0.0
+    - tomli <3.0.0,>=2.0.1
+    - psutil <6.0,>=5.9
 
 test:
   imports:
