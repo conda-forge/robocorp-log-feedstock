@@ -1,5 +1,5 @@
 {% set name = "robocorp-log" %}
-{% set version = "3.1.3" %}
+{% set version = "3.1.4" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/robocorp_log-{{ version }}.tar.gz
-  sha256: dd70b229f65f0abdea11b178dc090599957cc5b674ed209faf794c5af2c7b744
+  sha256: b9f1b4581c6d23a3ad05af7c969ca674dfcb53b3aaa75b7881054dcfad55304b
 
 build:
   noarch: python
@@ -25,7 +25,7 @@ requirements:
   run:
     - python >={{ python_min }},<4.0.0
     - tomli <3.0.0,>=2.0.1
-    - psutil >=5.0,<8.0
+    - psutil <8.0,>=5.0
 
 test:
   imports:
